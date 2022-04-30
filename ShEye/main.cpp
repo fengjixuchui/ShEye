@@ -46,17 +46,9 @@ int wmain()
         exit(EXIT_FAILURE);
     for (int i = 0; i < buffsz; i++)
     {
-        if (bytes[i] == 0x48)
+        if (bytes[i] == 0x48 || bytes[i] == 0xFF )
         {
-            if (bytes[i + 1] == 0xB8)
-            {
-                MessageBoxA(0, "hook detected", 0, 0);
-                exit(-4);
-            }
-        }
-        if (bytes[i] == 0xFF)
-        {
-            if (bytes[i + 1] == 0xE0)
+            if (bytes[i + 1] == 0xB8 || bytes[i + 1] == 0xE0)
             {
                 MessageBoxA(0, "hook detected", 0, 0);
                 exit(-4);
