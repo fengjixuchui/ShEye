@@ -1,6 +1,6 @@
 # ShEye
 
-* Simple Program To Detect API Hooks by Scanning OpCodes Patterns
+* Simple Program To Detect API Hooks in MessageBox by Scanning OpCodes Patterns
 
 * if any hook detected ,a MessageBox will pop up with alert 'hook detected'
 
