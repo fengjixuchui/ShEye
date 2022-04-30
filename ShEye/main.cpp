@@ -36,14 +36,14 @@ int wmain()
     HANDLE pr = OpenProcess(PROCESS_ALL_ACCESS, 0, getpid(L"app1.exe"));
     if (!pr)
         exit(EXIT_FAILURE);
-
     HMODULE hm = LoadLibraryA("user32.dll");
     if (!hm)
         exit(EXIT_FAILURE);
     LPVOID add = GetProcAddress(hm, "MessageBoxA");
     if (!add)
         exit(EXIT_FAILURE);
-    ReadProcessMemory(pr, add, bytes, buffsz, 0);
+    if (!ReadProcessMemory(pr, add, bytes, buffsz, 0))
+        exit(EXIT_FAILURE);
     for (int i = 0; i < buffsz; i++)
     {
         if (bytes[i] == 0x48)
